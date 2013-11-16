@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
 
 using namespace boost;
 
@@ -66,10 +67,11 @@ int main(int, char**) {
 
   bool r = bellman_ford_shortest_paths(
       g, N, distance_map(&d[0]).predecessor_map(&p[0]).root_vertex(s));
-  if (!r)
-    std::cout << "oops! negative cycle!" << std::endl;
-  else
-    std::cout << "no negative cycle present" << std::endl;
+  if (!r) {
+    std::cerr << "Oops! Negative cycle! Bellman-Ford will not work." << std::endl;
+    exit(EXIT_FAILURE);
+  } else
+    std::cout << "No negative cycle present." << std::endl;
 
   std::cout << "distances and parents:" << std::endl;
   int a, b, pa, pb;
@@ -117,6 +119,5 @@ int main(int, char**) {
   }
   */
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }
-
