@@ -1,4 +1,5 @@
 #include "Digraph.hpp"
+#include "dijkstra.hpp"
 #include <boost/graph/dijkstra_shortest_paths.hpp>
 #include <iostream>
 #include <algorithm>
@@ -13,23 +14,27 @@ int main(int, char **) {
   Vertex v, s, t;
   graph_traits<Digraph>::vertex_iterator vi, vend;
 
-  std::ifstream infile("../p1-1.dat");
-
-  initialize_network(infile, g, s, t);  // "Capacities" are just weights in this
+  initialize_network(std::cin, g, s, t);  // "Capacities" are just weights in this
                                         // case. We want shortest path from s to
                                         // t.
 
-  std::vector<Vertex> p(num_vertices(g));
-  std::vector<int> d(num_vertices(g));
+  int N = num_vertices(g);
+  //std::vector<Vertex> p(N);
+  //std::vector<int> d(N);
+  std::map<Vertex, Vertex> p;
+  std::map<Vertex, int> d;
 
-  dijkstra_shortest_paths(
-      g, s, predecessor_map(
-                make_iterator_property_map(p.begin(), get(vertex_index, g)))
-                .distance_map(make_iterator_property_map(
-                     d.begin(), get(boost::vertex_index, g))));
+
+  //dijkstra_shortest_paths(
+  //    g, s, predecessor_map(
+  //              make_iterator_property_map(p.begin(), get(vertex_index, g)))
+  //              .distance_map(make_iterator_property_map(
+  //                   d.begin(), get(vertex_index, g))));
+
+  dijkstra(g, N, s, p, d);
 
   std::cout << "distances and parents:" << std::endl;
-  for (boost::tie(vi, vend) = vertices(g); vi != vend; ++vi) {
+  for (tie(vi, vend) = vertices(g); vi != vend; ++vi) {
     std::cout << "distance(" << *vi << ") = " << d[*vi] << ", ";
     std::cout << "parent(" << *vi << ") = " << p[*vi] << std::endl;
   }
