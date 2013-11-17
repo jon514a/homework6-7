@@ -27,11 +27,12 @@ Enter the following commands in the terminal:
       make
 
 
-To run the four programs that produce the code for Problems 1.1, 1.3, 1.4, and 4.7(ii), assuming your working directory is still `homework6-7/build`:  
+To run the four programs that produce the code for Problems 1.1, 1.3, 1.4, 4.7(ii), and 4.10, assuming your working directory is still `homework6-7/build`:  
 
       ./bin/p11 < ../data/p1-1.dat
       ./bin/p13 < ../data/p1-3.dat  
       ./bin/p14 < ../data/p1-4.dat
       ./bin/p47 < ../data/p4-7ii.dat
+      ./bin/p410 < ../data/p4-10.dat
 
 
