@@ -11,7 +11,7 @@ using namespace boost;
 
 int main(int, char**) {
   Digraph g;
-  Vertex v, s, t; // t is effectively a dummy 
+  Vertex s, t; // t is effectively a dummy 
   graph_traits<Digraph>::vertex_iterator vi, vend;
   graph_traits<Digraph>::out_edge_iterator ei, eend;
 
@@ -25,7 +25,6 @@ int main(int, char**) {
   //std::vector<int> d(N);
   std::map<Vertex, Vertex> p;
   std::map<Vertex, int> d;
-  property_map<Digraph, edge_weight_t>::type wmap = get(edge_weight, g);
 
   //bool r = bellman_ford_shortest_paths(
   //    g, N, distance_map(&d[0]).predecessor_map(&p[0]).root_vertex(s));

@@ -20,7 +20,7 @@ Digraph create_aux_graph(Flow &f, Digraph &g) {
   Digraph auxg;
   Digraph::out_edge_iterator eit, eend;
   Digraph::vertex_iterator vit, vend;
-  Digraph::vertex_descriptor u, v;
+  Digraph::vertex_descriptor v;
 
   boost::tie(vit, vend) = boost::vertices(g);
   property_map<Digraph, edge_weight_t>::type capacity = get(edge_weight, g);
@@ -103,12 +103,9 @@ std::pair<std::vector<Vertex>, bool> flow_augmenting_path(Vertex &s, Vertex &t,
 
   // augment flow appropriately
   Edge e;
-  property_map<Digraph, edge_weight_t>::type auxweight = get(edge_weight, auxg);
 
   uit = st_path_or_cut.begin();
   vit = uit + 1;
-
-  Digraph::edge_descriptor tedge = edge(*uit, *vit, auxg).first;
 
   long sigma =
       -1;  // setting sigma = -1 here is a hack (see the for loop below)

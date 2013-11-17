@@ -63,7 +63,6 @@ int main(int, char**) {
   int N = num_vertices(g);
   std::vector<Vertex> p(N);
   std::vector<int> d(N);
-  property_map<graph_t, edge_weight_t>::type wmap = get(edge_weight, g);
 
   bool r = bellman_ford_shortest_paths(
       g, N, distance_map(&d[0]).predecessor_map(&p[0]).root_vertex(s));
