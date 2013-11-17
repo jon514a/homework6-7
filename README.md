@@ -31,6 +31,6 @@ To run the four programs that produce the code for Problems 1.1, 1.3, 1.4, and 4
       ./bin/p11 < ../data/p1-1.dat
       ./bin/p13 < ../data/p1-3.dat  
       ./bin/p14 < ../data/p1-4.dat
-      ./bin/p4-7ii < ../data/p4-7ii.dat
+      ./bin/p47 < ../data/p4-7ii.dat
 
 
