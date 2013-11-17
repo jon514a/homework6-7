@@ -11,19 +11,16 @@ If you are using a Mac and need any of these requirements, we recommend first in
 # Installation Instructions on Linux or Mac OS X #
 1. Clone this repo: `git clone https://github.com/jon514a/homework6-7.git`
 
-2. `cd homework6-7` (or whatever you named the repo)
-
-3. `mkdir build`
-
-4. `cd build`
-
-5. `cmake ..`
-
-6. `make`
+2. Run 
+    `cd homework6-7` (or whatever you named the repo)
+    `mkdir build`
+    `cd build`
+    `cmake ..`
+    `make`
 
 7. To run the four programs that produce the code for Problems 1.1, 1.3, 1.4, and 4.7(ii), assuming your working directory is still `homework6-7/build`:
-  `./bin/p11 < ../data/p1-1.dat`
-  `./bin/p13 < ../data/p1-3.dat`
-  `./bin/p14 < ../data/p1-4.dat`
-  `./bin/p4-7ii < ../data/p4-7ii.dat`
+    `./bin/p11 < ../data/p1-1.dat`
+    `./bin/p13 < ../data/p1-3.dat`
+    `./bin/p14 < ../data/p1-4.dat`
+    `./bin/p4-7ii < ../data/p4-7ii.dat`
 
