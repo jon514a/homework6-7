@@ -6,7 +6,7 @@
 
 using namespace boost;
 
-const int INF = 100000;
+const int INF = 2147483647;
 
 // Computes shortest paths in Digraph g from source s to all other vertices.
 // distances and parents assumed to be empty maps that will be filled in by this
@@ -63,6 +63,7 @@ void dijkstra(Digraph &g, int nvertices, Vertex s,
 
     unvisited_map[u] = false;
     std::make_heap(unvisited.begin(), unvisited.end(),
-                   comp);  // this is a hack!  inefficient
+                   comp);  // this is a hack! inefficient. would be better to
+                           // implement O(log n) ``update'' method for queue.
   }
 }

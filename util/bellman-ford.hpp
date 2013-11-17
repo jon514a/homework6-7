@@ -3,10 +3,11 @@
 #include <algorithm>
 #include <vector>
 #include <queue>
+#include <cstdlib>
 
 using namespace boost;
 
-const int INF = 100000;
+const int INF = 2147483647;
 
 // Computes shortest paths in Digraph g from source s to all other vertices.
 // distances and parents assumed to be empty maps that will be filled in by this
@@ -40,12 +41,13 @@ void bellman_ford(Digraph &g, int nvertices, Vertex s,
     }
   }
 
-  // check for cycles
+  // check for cycles of negative weight
   for (tie(eit, eend) = edges(g); eit != eend; eit++) {
     u = source(*eit, g);
     v = target(*eit, g);
     if (distances[u] + wmap[*eit] < distances[v])
       std::cerr << "Graph contains a cycle of negative weight. Bellman-Ford "
                    "does not apply." << std::endl;
+    exit(EXIT_FAILURE);
   }
 }
