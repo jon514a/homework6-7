@@ -3,7 +3,7 @@
 Code for Math 514A Homeworks 6 &amp; 7
 
 # Installation Requirements #
-All the code is written in C++ and requires a modern compiler that supports the C++11 standard.  (We tested the code with `g++ v 4.7` and `clang++ v 5.0` work on Mac OS X.)  The Boost Graph Library (v 1.54.0 or later) is also required.  It is useful, but not absolutely required, to have the `cmake` (v 2.6+) and `make` (many versions will work) utilities installed.  It is also useful, but not absolutely required, to have `git` installed.
+All the code is written in C++ and requires a modern compiler that supports the C++11 standard.  We tested the code with `g++ v 4.7` and `clang++ v 5.0` on Mac OS X.  The [Boost Graph Library](http://www.boost.org/doc/libs/1_55_0/libs/graph/doc/index.html) (v 1.54.0 or later) is also required.  It is useful, but not absolutely required, to have the `cmake` (v 2.6+) and `make` (many versions will work) utilities installed.  It is also useful, but not absolutely required, to have `git` installed.
 
 If you are using a Mac and need any of these requirements, we recommend first installing [Homebrew](http://brew.sh/) and then running
 
