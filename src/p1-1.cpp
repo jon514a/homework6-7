@@ -1,5 +1,5 @@
-#include "Digraph.hpp"
-#include "dijkstra.hpp"
+#include "Digraph.hpp"  // located in util folder
+#include "dijkstra.hpp" // located in util folder
 #include <boost/graph/dijkstra_shortest_paths.hpp>
 #include <iostream>
 #include <algorithm>
