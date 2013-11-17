@@ -1,5 +1,7 @@
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/bellman_ford_shortest_paths.hpp>
+#include "Digraph.hpp"
+#include "bellman-ford.hpp"
+//#include <boost/graph/adjacency_list.hpp>
+//#include <boost/graph/bellman_ford_shortest_paths.hpp>
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -29,7 +31,8 @@ int main(int, char**) {
   std::map<int, int> art_value;
 
   int knapsack_vol, num_articles, i, x, vol, val;
-  std::ifstream infile("../p1-4.dat");
+  //std::ifstream infile("../p1-4.dat");
+  std::istream &infile = std::cin;
   infile >> knapsack_vol >> num_articles;
   while (infile >> i >> vol >> val) {
     art_volume.insert(std::make_pair(i, vol));
@@ -60,6 +63,13 @@ int main(int, char**) {
 
   // set up and run bellman-ford
   Vertex s = nat_to_int[Pair(0, 0)];
+
+  int N = num_vertices(g);
+  std::map<Vertex, Vertex> p;
+  std::map<Vertex, int> d;
+
+  bellman_ford(g, N, s, p, d);
+  /*
   int N = num_vertices(g);
   std::vector<Vertex> p(N);
   std::vector<int> d(N);
@@ -71,6 +81,7 @@ int main(int, char**) {
     exit(EXIT_FAILURE);
   } else
     std::cout << "No negative cycle present." << std::endl;
+    */
 
   std::cout << "distances and parents:" << std::endl;
   int a, b, pa, pb;

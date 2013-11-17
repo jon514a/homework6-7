@@ -5,6 +5,7 @@ set(util_source_files
   bellman-ford.hpp
   )
 
+find_package(Boost 1.54 COMPONENTS graph REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
 add_library(util ${util_source_files})
-find_package(Boost 1.55 COMPONENTS graph REQUIRED)
-target_link_libraries(util ${Boost_INCLUDE_DIR})
+target_link_libraries(util ${Boost_LIBRARIES})

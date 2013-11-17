@@ -29,6 +29,7 @@ void bellman_ford(Digraph &g, int nvertices, Vertex s,
   for (tie(vit, vend) = vertices(g); vit != vend; vit++) distances[*vit] = INF;
 
   distances[s] = 0;
+  parents[s] = s;
 
   for (i = 1; i <= nvertices - 1; i++) {
     for (tie(eit, eend) = edges(g); eit != eend; eit++) {
@@ -45,9 +46,10 @@ void bellman_ford(Digraph &g, int nvertices, Vertex s,
   for (tie(eit, eend) = edges(g); eit != eend; eit++) {
     u = source(*eit, g);
     v = target(*eit, g);
-    if (distances[u] + wmap[*eit] < distances[v])
+    if (distances[u] + wmap[*eit] < distances[v]) {
       std::cerr << "Graph contains a cycle of negative weight. Bellman-Ford "
                    "does not apply." << std::endl;
-    exit(EXIT_FAILURE);
+      exit(EXIT_FAILURE);
+    }
   }
 }
