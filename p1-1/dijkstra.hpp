@@ -6,7 +6,6 @@
 
 using namespace boost;
 
-// const int INF = 2147483647;
 const int INF = 100000;
 
 // Computes shortest paths in Digraph g from source s to all other vertices.
@@ -49,9 +48,6 @@ void dijkstra(Digraph &g, int nvertices, Vertex s,
     std::pop_heap(unvisited.begin(), unvisited.end(), comp);
     unvisited.pop_back();
 
-    std::cout << "current node = " << u << " with distance " << distances[u]
-              << std::endl;
-
     if (distances[u] == INF) break;
 
     for (tie(eit, eend) = out_edges(u, g); eit != eend; eit++) {
@@ -67,6 +63,6 @@ void dijkstra(Digraph &g, int nvertices, Vertex s,
 
     unvisited_map[u] = false;
     std::make_heap(unvisited.begin(), unvisited.end(),
-                   comp);  // this is a hack!  a little bit inefficient
+                   comp);  // this is a hack!  inefficient
   }
 }
