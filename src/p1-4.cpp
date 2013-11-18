@@ -34,11 +34,14 @@ int main(int, char**) {
   //std::ifstream infile("../p1-4.dat");
   std::istream &infile = std::cin;
   infile >> knapsack_vol >> num_articles;
+  std::cout << "Reading in articles" << std::endl;
   while (infile >> i >> vol >> val) {
     art_volume.insert(std::make_pair(i, vol));
     art_value.insert(std::make_pair(i, val));
-    std::cout << "article " << i << "vol, val " << vol << val << std::endl;
+    std::cout << "article " << i << " vol " << vol << " val " << val
+              << std::endl;
   }
+  std::cout << std::endl;
 
   for (i = 0; i <= num_articles + 1; i++) {
     for (x = 0; x <= knapsack_vol; x++) {
@@ -83,7 +86,8 @@ int main(int, char**) {
     std::cout << "No negative cycle present." << std::endl;
     */
 
-  std::cout << "distances and parents:" << std::endl;
+  std::cout << "Distances from (0,0) and predecessors in shortest paths:"
+            << std::endl;
   int a, b, pa, pb;
   for (tie(vi, vend) = vertices(g); vi != vend; ++vi) {
     if (*vi == p[*vi])
