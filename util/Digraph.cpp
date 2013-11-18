@@ -62,16 +62,23 @@ int max_flow_min_cut(Vertex &s, Vertex &t, Digraph &g) {
     flowval += f[*e];
   }
 
+  std::cout << "Ford-Fulkerson found the following maximum-valued flow:"
+            << std::endl;
   for (tie(v, vend) = vertices(g); v != vend; v++) {
     for (tie(e, eend) = out_edges(*v, g); e != eend; e++) {
-      std::cout << "(" << source(*e, g) << "," << target(*e, g) << ") has flow "
-                << f[*e] << std::endl;
+      std::cout << "edge (" << source(*e, g) << "," << target(*e, g)
+                << ") has flow " << f[*e] << std::endl;
     }
   }
+  std::cout << std::endl;
 
+  std::cout << "Ford-Fulkerson also found the following minimum s-t cut set:"
+            << std::endl;
   std::vector<Vertex>::iterator cutit;
   for (cutit = cut.begin(); cutit != cut.end(); cutit++)
     std::cout << "cut vertex: " << *cutit << std::endl;
+  std::cout << std::endl;
+
   return flowval;
 }
 
